@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from 'next/navigation';
 import { Card, CardBody, Button } from "@heroui/react";
 import {
   HomeIcon,
@@ -10,10 +11,11 @@ import {
   PlusIcon,
 } from "@heroicons/react/24/outline";
 
-export const Sidebar = ({ onNavClick }: { onNavClick: (href: string) => void }) => {
+export const Sidebar = () => {
+  const router = useRouter();
   const navItems = [
-    { name: "Dashboard", icon: HomeIcon, href: "/dashboard" },
-    { name: "Vendors", icon: PlusIcon, href: "/vendors" },
+    { name: "Dashboard", icon: HomeIcon, href: "/" },
+    { name: "Vendors", icon: PlusIcon, href: "/vendor" },
     { name: "Settings", icon: Cog6ToothIcon, href: "/settings" },
   ];
 
@@ -30,7 +32,7 @@ export const Sidebar = ({ onNavClick }: { onNavClick: (href: string) => void }) 
               className="w-full justify-start mb-1 h-12"
               startContent={<item.icon className="h-5 w-5" />}
               variant="light"
-              onClick={() => onNavClick(item.href)}
+              onClick={() => router.push(item.href)}
             >
               {item.name}
             </Button>

@@ -10,6 +10,7 @@ import { fontSans } from "@/config/fonts";
 // import { Navbar } from "@/components/navbar";
 
 import { HeroUIProvider } from "@heroui/system";
+// import {type NextRouter, useRouter} from "next/router";
 
 export const metadata: Metadata = {
   title: {
