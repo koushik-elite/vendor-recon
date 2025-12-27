@@ -130,7 +130,7 @@ export default function AdminDashboard() {
             {/* Header */}
             <div className="flex justify-between items-center mb-6">
           <div>
-            <h1 className="text-2xl font-bold">Dashboard</h1>
+            <h1 className="text-2xl font-bold text-black">Dashboard</h1>
             <p className="text-default-600">Welcome back, Admin!</p>
           </div>
           <div className="flex items-center gap-3">

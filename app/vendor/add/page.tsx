@@ -19,7 +19,7 @@ export default function AddVendorPage() {
   return (
     <div className="flex items-center justify-center min-h-full">
       <form onSubmit={handleSubmit} className="w-full p-8 bg-white rounded-lg shadow-lg">
-        <h2 className="text-3xl font-bold mb-8 text-center">Add Vendor</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center text-black">Add Vendor</h2>
         <div className="grid grid-cols-2 gap-6 mb-6">
           <Input
             label="Vendor Name"

@@ -22,7 +22,7 @@ export const Sidebar = () => {
   return (
     <Card className="w-64 h-screen rounded-none shadow-md">
       <CardBody className="p-0">
-        <div className="p-4 text-lg font-bold border-b border-divider">
+        <div className="p-4 text-lg font-bold border-b border-divider text-black">
           Admin Panel
         </div>
         <div className="p-2">
