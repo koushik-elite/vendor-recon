@@ -66,7 +66,6 @@ export default function AddVendorPage() {
         </form>
       </div>
       <div className="flex items-center justify-center min-h-full">
-        <form onSubmit={handleSOASubmit} className="w-full p-8 bg-white rounded-lg shadow-lg">
           <h1 className="font-bold text-black">SOA Mapping</h1>
           <div>
             <div style={{ width: '100%' }}>
@@ -80,7 +79,6 @@ export default function AddVendorPage() {
 
             <pre>{JSON.stringify(entries, null, 2)}</pre>
           </div>
-        </form>
       </div>
     </div>
   );
