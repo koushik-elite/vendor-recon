@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Input, Button } from "@heroui/react";
+import BBoxAnnotator, { type EntryType } from '@/components/BBoxAnnotator';
 
 export default function AddVendorPage() {
   const [formData, setFormData] = useState({
@@ -16,40 +17,71 @@ export default function AddVendorPage() {
     // Here you can add logic to save to backend or state
   };
 
+  const handleSOASubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    console.log('Vendor added:', formData);
+    // Here you can add logic to save to backend or state
+  };
+
+  const labels = ['Invoice No', 'Due Date', 'Due Amount'];
+  const [entries, setEntries] = useState<EntryType[]>([]);
+
   return (
-    <div className="flex items-center justify-center min-h-full">
-      <form onSubmit={handleSubmit} className="w-full p-8 bg-white rounded-lg shadow-lg">
-          <h2 className="text-3xl font-bold mb-8 text-center text-black">Add Vendor</h2>
-        <div className="grid grid-cols-2 gap-6 mb-6">
-          <Input
-            label="Vendor Name"
-            value={formData.name}
-            onChange={(e) => setFormData({...formData, name: e.target.value})}
-            required
-            size="lg"
-          />
-          <Input
-            label="Contact Email"
-            type="email"
-            value={formData.email}
-            onChange={(e) => setFormData({...formData, email: e.target.value})}
-            required
-            size="lg"
-          />
-          <Input
-            label="Phone"
-            value={formData.phone}
-            onChange={(e) => setFormData({...formData, phone: e.target.value})}
-            size="lg"
-            className="col-span-2"
-          />
-        </div>
-        <div className="flex justify-center">
-          <Button type="submit" color="primary" size="lg" className="px-8">
-            Add Vendor
-          </Button>
-        </div>
-      </form>
+    <div className="container mx-auto mt-10">
+      <div className="flex justify-between items-center mb-6">
+        <h1 className="text-2xl font-bold text-black">New Vendor</h1>
+      </div>
+      <div className="flex items-center justify-center min-h-full">
+        <form onSubmit={handleSubmit} className="w-full p-8 bg-white rounded-lg shadow-lg">
+          <h1 className="font-bold text-black">Basic Details</h1>
+          <div className="grid grid-cols-2 gap-6 mb-6">
+            <Input
+              label="Vendor Name"
+              value={formData.name}
+              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+              required
+              size="lg"
+            />
+            <Input
+              label="Contact Email"
+              type="email"
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              required
+              size="lg"
+            />
+            <Input
+              label="Phone"
+              value={formData.phone}
+              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              size="lg"
+              className="col-span-2"
+            />
+          </div>
+          <div className="flex justify-center">
+            <Button type="submit" color="primary" size="lg" className="px-8">
+              Add Vendor
+            </Button>
+          </div>
+        </form>
+      </div>
+      <div className="flex items-center justify-center min-h-full">
+        <form onSubmit={handleSOASubmit} className="w-full p-8 bg-white rounded-lg shadow-lg">
+          <h1 className="font-bold text-black">SOA Mapping</h1>
+          <div>
+            <div style={{ width: '100%' }}>
+              <BBoxAnnotator
+                url="/assets/images/sample-soa.png"
+                inputMethod="select"
+                labels={labels}
+                onChange={(e) => setEntries(e)}
+              />
+            </div>
+
+            <pre>{JSON.stringify(entries, null, 2)}</pre>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
