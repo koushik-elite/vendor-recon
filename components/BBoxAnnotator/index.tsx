@@ -93,16 +93,16 @@ const BBoxAnnotator = React.forwardRef<any, Props>(({ url, borderWidth = 2, inpu
             x:
                 bBoxAnnotatorRef.current && imageFrameStyle.width
                     ? Math.min(
-                          Math.max(Math.round(pageX - bBoxAnnotatorRef.current.offsetLeft), 0),
-                          Math.round(imageFrameStyle.width - 1),
-                      )
+                        Math.max(Math.round(pageX - bBoxAnnotatorRef.current.offsetLeft), 0),
+                        Math.round(imageFrameStyle.width - 1),
+                    )
                     : 0,
             y:
                 bBoxAnnotatorRef.current && imageFrameStyle.height
                     ? Math.min(
-                          Math.max(Math.round(pageY - bBoxAnnotatorRef.current.offsetTop), 0),
-                          Math.round(imageFrameStyle.height - 1),
-                      )
+                        Math.max(Math.round(pageY - bBoxAnnotatorRef.current.offsetTop), 0),
+                        Math.round(imageFrameStyle.height - 1),
+                    )
                     : 0,
         };
     };
@@ -309,6 +309,7 @@ const BBoxAnnotator = React.forwardRef<any, Props>(({ url, borderWidth = 2, inpu
 
     return (
         <div
+            className='bBox-annotator'
             style={{
                 cursor: status === 'hold' ? 'crosshair' : dragging ? 'grabbing' : 'crosshair',
                 width: `${bBoxAnnotatorStyle.width}px`,
@@ -318,6 +319,7 @@ const BBoxAnnotator = React.forwardRef<any, Props>(({ url, borderWidth = 2, inpu
             onMouseDown={mouseDownHandler}
         >
             <div
+                className='image-frame'
                 style={{
                     position: 'relative',
                     backgroundSize: '100%',
@@ -339,6 +341,7 @@ const BBoxAnnotator = React.forwardRef<any, Props>(({ url, borderWidth = 2, inpu
                 ) : null}
                 {entries.map((entry, i) => (
                     <div
+                        className='entries'
                         style={{
                             border:
                                 selectedId === entry.id
@@ -383,6 +386,7 @@ const BBoxAnnotator = React.forwardRef<any, Props>(({ url, borderWidth = 2, inpu
                     >
                         {entry.showCloseButton ? (
                             <div
+                                className='close-button'
                                 style={{
                                     position: 'absolute',
                                     top: '-8px',
@@ -431,6 +435,7 @@ const BBoxAnnotator = React.forwardRef<any, Props>(({ url, borderWidth = 2, inpu
                         {selectedId === entry.id ? (
                             <>
                                 <div
+                                    className='selected'
                                     style={{
                                         position: 'absolute',
                                         width: '8px',
@@ -459,6 +464,7 @@ const BBoxAnnotator = React.forwardRef<any, Props>(({ url, borderWidth = 2, inpu
                                     }}
                                 />
                                 <div
+                                    className='selected'
                                     style={{
                                         position: 'absolute',
                                         width: '8px',
@@ -488,6 +494,7 @@ const BBoxAnnotator = React.forwardRef<any, Props>(({ url, borderWidth = 2, inpu
                                     }}
                                 />
                                 <div
+                                    className='selected'
                                     style={{
                                         position: 'absolute',
                                         width: '8px',

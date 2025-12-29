@@ -7,6 +7,7 @@ interface Props {
 const BBoxSelector: React.FC<Props> = ({ rectangle, borderWidth = 2 }) => {
     return (
         <div
+            className='draw-box'
             style={{
                 position: 'absolute',
                 border: `${borderWidth}px dotted rgb(127,255,127)`,

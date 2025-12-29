@@ -58,16 +58,9 @@ export default function AddVendorPage() {
               className="col-span-2"
             />
           </div>
-          <div className="flex justify-center">
-            <Button type="submit" color="primary" size="lg" className="px-8">
-              Add Vendor
-            </Button>
-          </div>
-        </form>
-      </div>
-      <div className="flex items-center justify-center min-h-full">
+          <br />
           <h1 className="font-bold text-black">SOA Mapping</h1>
-          <div>
+          <div className="flex justify-center">
             <div style={{ width: '100%' }}>
               <BBoxAnnotator
                 url="/assets/images/sample-soa.png"
@@ -76,9 +69,17 @@ export default function AddVendorPage() {
                 onChange={(e) => setEntries(e)}
               />
             </div>
-
-            <pre>{JSON.stringify(entries, null, 2)}</pre>
           </div>
+          <div className="flex justify-center">
+            <Button type="submit" color="primary" size="lg" className="px-8">
+              Add Vendor
+            </Button>
+          </div>
+        </form>
+      </div>
+      <div className="flex items-center justify-center min-h-full">
+        <h1 className="font-bold text-black">SOA Mapping</h1>
+        <pre>{JSON.stringify(entries, null, 2)}</pre>
       </div>
     </div>
   );
